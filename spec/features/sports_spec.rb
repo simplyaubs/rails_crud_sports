@@ -33,4 +33,21 @@ feature 'CRUD sports' do
     expect(page).to_not have_content 'Soccer'
     expect(page).to_not have_content 'Shin guards'
   end
+
+  scenario 'User can delete a sport from list' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a sport'
+    fill_in 'Name', with: 'Soccer'
+    fill_in 'Equip', with: 'Shin guards'
+    click_on 'Add sport'
+    expect(page).to have_content 'Soccer'
+    expect(page).to have_content 'Shin guards'
+    click_on 'Soccer'
+    expect(page).to have_content 'Soccer'
+    expect(page).to have_content 'Shin guards'
+    click_on 'Delete'
+    expect(page).to_not have_content 'Soccer'
+    expect(page).to_not have_content 'Shin guards'
+  end
 end

@@ -30,6 +30,12 @@ class SportsController < ApplicationController
     redirect_to sports_path
   end
 
+  def destroy
+    @sport = Sport.find(params[:id]).delete
+
+    redirect_to sports_path
+  end
+
   private
   def sport_params
     params.require(:sport).permit(:name, :equip)

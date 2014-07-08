@@ -8,14 +8,6 @@
     <%= f.text_field :equip %>
   </p>
   <p>
-    <%= f.submit 'Add sport' %>
+    <%= f.submit 'Update sport' %>
   </p>
-<% end %>
-
-<%= @sports.each do |sport| %>
-<ul>
-  <li>
-    <%= link_to "#{sport.name}", sport_path(sport) %>, <%= sport.equip %>
-  </li>
-</ul>
 <% end %>
